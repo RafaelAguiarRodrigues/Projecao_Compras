@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}">
+<head>
+    <title>Cadastro de Compras</title>
+</head>
+<body>
+    <div layout:fragment="conteudo">
+        <h1 class="titulo">Cadastro de compras</h1>
+        <form action="/compras" method="post" class="formulario">
+            <input type="hidden" name="_method" value="put" th:if="${compra != null}">
+            <div class="formulario__campo">
+                <label for="nomeCompra">Nome:</label>
+                <input type="text" name="nomeCompra" id="nomeCompra" required th:value="${compra?.nomeCompra}">
+            </div>
+            <div>
+                <label for="valorCompra">Valor:</label>
+                <input type="number" name="valorCompra" id="valorCompra" step="0.01" required th:value="${compra?.valorCompra}">
+            </div>
+
+            <input type="submit" value="Comprar" class="formulario__botao">
+        </form>
+    </div>
+</body>
+</html>

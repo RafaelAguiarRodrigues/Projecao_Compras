@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}">
+<head>
+    <title>Lista Compras</title>
+</head>
+<body>
+    <div layout:fragment="conteudo">
+        <h1 class="titulo">Lista de Compras</h1>
+        <a href="/compras/formulario">Nova compra</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="compra : ${lista}">
+                    <td th:text="${compra.nomeCompra}"></td>
+                    <td th:text="${compra.valorCompra}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

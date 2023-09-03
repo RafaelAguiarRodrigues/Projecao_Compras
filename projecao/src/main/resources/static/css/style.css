@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+
+:root {
+    --fonte:
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.titulo {
+    padding: 1em 0;
+    text-align: center;
+}
+
+.formulario {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 1em 0;
+    width: 80vw;
+}
+
+.formulario__campo {
+    padding: 1em 0;
+}
+
+.formulario__botao {
+    border-radius: 12px;
+    margin-top: 1em;
+    padding: 0.6em;
+}
+
+.formulario__botao:hover {
+    background-color: green;
+    cursor: pointer;
+    transition: 0.6s ease;
+}
