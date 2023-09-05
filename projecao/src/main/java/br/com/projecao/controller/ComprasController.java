@@ -4,6 +4,7 @@ import br.com.projecao.model.Compra;
 import br.com.projecao.model.DadosAlteracaoCompra;
 import br.com.projecao.model.DadosCompra;
 import br.com.projecao.repository.ComprasRepository;
+import br.com.projecao.service.CompraService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,9 @@ import org.springframework.web.bind.annotation.*;
 public class ComprasController {
     @Autowired
     private ComprasRepository repository;
+    @Autowired
+    private CompraService compraService;
+
 
     @GetMapping("/formulario")
     public String carregaPaginaForm (Long id, Model model) {
@@ -35,7 +39,7 @@ public class ComprasController {
     @Transactional
     public String cadastrarCompra (DadosCompra dados) {
         var compra = new Compra(dados);
-        repository.save(compra);
+        compraService.salvarComDescontoOuJuros(compra);
 
         return "redirect:/compras";
     }
@@ -45,6 +49,7 @@ public class ComprasController {
     public String alteraCompra (DadosAlteracaoCompra dados) {
         var compra = repository.getReferenceById(dados.id());
         compra.atualizarDados(dados);
+        compraService.salvarComDescontoOuJuros(compra);
 
         return "redirect:/compras";
     }
