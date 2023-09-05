@@ -1,12 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
 
 :root {
-    --fonte:
+    --fonte: 'Roboto', sans-serif;
 }
 
 * {
+    border: 0;
+    font-family: var(--fonte);
     margin: 0;
     padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 .titulo {
@@ -38,4 +47,26 @@
     background-color: green;
     cursor: pointer;
     transition: 0.6s ease;
+}
+
+.link {
+    display: inherit;
+    text-align: center;
+}
+
+.tabelaCompra {
+    margin: 2em auto;
+}
+
+.tabelaCompra thead tr th {
+    background-color: gray;
+    border: 1px solid black;
+    padding: 1em 2em;
+    text-align: center;
+}
+
+.tabelaCompra tbody tr td {
+    border: 1px solid black;
+    padding: 1em 2em;
+    text-align: center;
 }

@@ -9,18 +9,27 @@
 <body>
     <div layout:fragment="conteudo">
         <h1 class="titulo">Lista de Compras</h1>
-        <a href="/compras/formulario">Nova compra</a>
-        <table>
+        <a href="/compras/formulario" class="link">Nova compra</a>
+        <table class="tabelaCompra">
             <thead>
                 <tr>
                     <th>Nome</th>
                     <th>Valor</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="compra : ${lista}">
                     <td th:text="${compra.nomeCompra}"></td>
                     <td th:text="${compra.valorCompra}"></td>
+                    <td>
+                        <a th:href="@{/compras/formulario?id={id}(id=${compra.id})}">Editar</a>
+                        <form action="/compras" method="post">
+                            <input type="hidden" name="_method" value="delete">
+                            <input type="hidden" name="id" th:value="${compra.id}">
+                            <input type="submit" value="excluir">
+                        </form>
+                    </td>
                 </tr>
             </tbody>
         </table>

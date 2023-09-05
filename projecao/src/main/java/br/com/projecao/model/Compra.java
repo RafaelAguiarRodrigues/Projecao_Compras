@@ -18,6 +18,19 @@ public class Compra {
         this.valorCompra = dados.valorCompra();
     }
 
+    public void atualizarDados (DadosAlteracaoCompra dados) {
+        this.valorCompra = dados.valorCompra();
+        this.nomeCompra = dados.nomeCompra();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Double getValorCompra() {
         return valorCompra;
     }
@@ -37,8 +50,8 @@ public class Compra {
     @Override
     public String toString() {
         return "Compras{" +
-                "valorCompra=" + valorCompra +
-                ", nomeCompra='" + nomeCompra + '\'' +
+                "valor Compra=" + valorCompra +
+                ", nome Compra='" + nomeCompra + '\'' +
                 '}';
     }
 }
